@@ -18,7 +18,6 @@ An interactive Streamlit dashboard for visualizing and analyzing cleaned energy 
 
 ## 📷 Screenshot
 
-\
 !()
 
 ---
