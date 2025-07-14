@@ -1,78 +1,144 @@
-# ⚡ Cleaned Energy Dashboard – UK-DALE
+# ⚡ Energy Consumption Dashboard
 
-This project presents an interactive energy monitoring dashboard and reporting tool built with **Streamlit**, using appliance-level data from the [UK-DALE (UK Domestic Appliance-Level Electricity)](https://jack-kelly.com/data/) dataset. It provides real-time insights, visualizations, and downloadable reports based on cleaned and manually processed energy usage data.
-
----
-
-## 📁 Dataset Overview
-
-- **Source**: UK-DALE (UK Domestic Appliance-Level Electricity)
-- **House**: House 1 (November 2012 – April 2013)
-- **Granularity**:
-  - Appliance readings: 1-second resolution
-  - Converted to VAh (Volt-Ampere-Hours)
-- **Channels**: Over 50 sub-metered appliances (kettle, fridge, laptop, dishwasher, etc.)
-- **Aggregate Channel**: Reconstructed manually as the sum of all appliances
+An interactive Streamlit dashboard for visualizing and analyzing cleaned energy usage data from the UK-DALE dataset (or similar format). It supports multiple appliances, anomaly detection, custom date filtering, and automated PDF report generation.
 
 ---
 
-## 🎯 Project Goals
+## 📌 Features
 
-- ✅ Clean and align raw `.dat` appliance files
-- ✅ Reconstruct aggregate usage
-- ✅ Convert apparent power readings (VA) to energy (VAh)
-- ✅ Visualize energy usage per appliance over time
-- ✅ Detect anomalies in appliance consumption
-- ✅ Generate downloadable visual PDF reports
-- ✅ Deliver insights via an interactive Streamlit dashboard
-
----
-
-## 🛠️ Tools & Technologies
-
-| Tool         | Purpose                                  |
-|--------------|-------------------------------------------|
-| `pandas`     | Data processing and wrangling             |
-| `matplotlib` | Static plotting for reports               |
-| `plotly`     | Interactive charts in dashboard           |
-| `seaborn`    | Heatmaps and statistical visuals          |
-| `scipy`      | Anomaly detection (Z-score)               |
-| `Streamlit`  | Web interface and dashboard framework     |
-| `FPDF`       | PDF report generation                     |
+- 🗕️ **Custom Date Range Selection**
+- 🧰 **Multi-Appliance Selection** with optional "Select All"
+- 📉 **Interactive Line Charts** using Plotly
+- 🚨 **Anomaly Detection** via Z-score method (excluding aggregate)
+- 📊 **Usage Metrics & Summary Stats**
+- 🖼️ **Auto-Generated Visuals**: Line Plot, Bar Chart, and Heatmap
+- 📄 **PDF Report Export** with embedded visualizations
 
 ---
 
-## 🧪 Workflow Summary
+## 📷 Screenshot
 
-### 🔹 Data Cleaning & Processing
-- All `.dat` files were parsed individually and aligned using a shared timestamp window.
-- VA values were converted to VAh assuming 1-second sampling intervals:
-
-  \[
-  \text{VAh} = \frac{\text{VA}}{3600}
-  \]
-
-- New aggregate was generated as the sum of all appliances.
-- Files were exported into a new cleaned format (`cleaned_house1/`).
-
-### 🔹 Dashboard Features
-
-#### 📊 Tab 1: Dashboard
-- Appliance selection and time-based resampling (Hourly, Daily, Weekly, Monthly)
-- Line chart of consumption
-- Key metrics (total usage, average per appliance, top consumer)
-- Anomaly detection using Z-score
-- Raw data viewer
-
-#### 📋 Tab 2: Report Generator
-- Generates a **visual PDF report** including:
-  - Power usage line chart
-  - Top 10 consumers bar chart
-  - Appliance usage heatmap
-  - Summary stats and anomaly table
-- Allows download of the report
+\
+(Replace with your actual screenshot)
 
 ---
 
-## 📦 Folder Structure
+## 📁 Directory Structure
 
+```
+project/
+│
+├── cleaned_house1/              # Folder with .dat files and labels.dat
+│   ├── channel_1.dat
+│   ├── channel_2.dat
+│   └── labels.dat
+│
+├── dashboard.py                 # Main Streamlit app file
+├── README.md                    # This file
+└── requirements.txt             # Python dependencies
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/energy-dashboard.git
+cd energy-dashboard
+```
+
+### 2. Create a Virtual Environment (Optional but Recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows use: venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Streamlit App
+
+```bash
+streamlit run dashboard.py
+```
+
+Make sure your `.dat` files are inside a folder named `cleaned_house1/` in the same directory.
+
+---
+
+## 🧪 Example Dataset Format
+
+Ensure your `cleaned_house1/` folder includes:
+
+- `labels.dat`:
+
+  ```
+  1 aggregate
+  2 kettle
+  3 microwave
+  ```
+
+- `channel_1.dat`, `channel_2.dat`, ...:
+
+  ```
+  1351534170 180
+  1351534230 190
+  ```
+
+---
+
+## 📦 Requirements
+
+- Python 3.8+
+- Streamlit
+- Pandas
+- Plotly
+- Seaborn
+- Matplotlib
+- SciPy
+- FPDF
+- pathlib
+
+You can install everything with:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 📄 PDF Report
+
+Click the **📄 Generate Analysis Report** button in the app to generate a downloadable PDF report with:
+
+- Summary stats
+- Line chart
+- Bar chart
+- Heatmap
+- Anomaly summary
+
+---
+
+## Credits
+
+Created by [Babatunde Joseph](https://github.com/your-username)\
+contributors: 
+- [Maria]
+- Musa Jafar
+- Dorris
+- Kelechi
+- Bethel
+
+Uses data in the format of [UK-DALE Dataset](https://jack-kelly.com/data/)
+
+---
+
+## 📓 License
+
+This project is licensed under the [MIT License](LICENSE).
