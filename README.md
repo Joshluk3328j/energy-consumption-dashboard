@@ -127,7 +127,7 @@ Click the **📄 Generate Analysis Report** button in the app to generate a down
 
 ## Credits
 
-Created by [Babatunde Joseph](https://github.com/your-username](https://github.com/Joshluk3328j)\
+Created by [Babatunde Joseph](https://github.com/Joshluk3328j)\
 
 ### contributors: 
 - [Maria](https://github.com/CodeMorpheus0)
