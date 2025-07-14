@@ -134,7 +134,7 @@ Created by [Babatunde Joseph](https://github.com/your-username](https://github.c
 - Musa Jafar
 - Dorris
 - Kelechi
-- Bethel
+- [Bethel](https://github.com/nnajibethel)
 
 Uses data in the format of [UK-DALE Dataset](https://jack-kelly.com/data/)
 
